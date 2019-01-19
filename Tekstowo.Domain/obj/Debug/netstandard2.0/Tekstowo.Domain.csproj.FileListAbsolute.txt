@@ -1,0 +1,9 @@
+C:\Users\Dominik\source\repos\Tekstowo\Tekstowo.Domain\bin\Debug\netstandard2.0\Tekstowo.Domain.deps.json
+C:\Users\Dominik\source\repos\Tekstowo\Tekstowo.Domain\bin\Debug\netstandard2.0\Tekstowo.Domain.dll
+C:\Users\Dominik\source\repos\Tekstowo\Tekstowo.Domain\obj\Debug\netstandard2.0\Tekstowo.Domain.csprojAssemblyReference.cache
+C:\Users\Dominik\source\repos\Tekstowo\Tekstowo.Domain\obj\Debug\netstandard2.0\Tekstowo.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Dominik\source\repos\Tekstowo\Tekstowo.Domain\obj\Debug\netstandard2.0\Tekstowo.Domain.AssemblyInfoInputs.cache
+C:\Users\Dominik\source\repos\Tekstowo\Tekstowo.Domain\obj\Debug\netstandard2.0\Tekstowo.Domain.AssemblyInfo.cs
+C:\Users\Dominik\source\repos\Tekstowo\Tekstowo.Domain\bin\Debug\netstandard2.0\Tekstowo.Domain.pdb
+C:\Users\Dominik\source\repos\Tekstowo\Tekstowo.Domain\obj\Debug\netstandard2.0\Tekstowo.Domain.dll
+C:\Users\Dominik\source\repos\Tekstowo\Tekstowo.Domain\obj\Debug\netstandard2.0\Tekstowo.Domain.pdb
