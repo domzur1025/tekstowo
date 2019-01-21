@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Tekstowo.Domain.Abstract;
 using Tekstowo.Domain.Entities;
+using Tekstowo.WebUI.Models;
 
 namespace Tekstowo.WebUI.Controllers
 {
@@ -19,9 +20,21 @@ namespace Tekstowo.WebUI.Controllers
             this.repository = songRepository;
         }
 
-        public ViewResult List(int page=1)
+        public ViewResult List(int page = 1)
         {
-            return View(repository.Songs.OrderBy(p=>p.SongId).Skip((page-1)*PageSize).Take(PageSize));
+            SongListViewModelcs model = new SongListViewModelcs
+            {
+                Songs = repository.Songs.OrderBy(s => s.SongId).Skip((page - 1) * PageSize).Take(PageSize),
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = page,
+                    SongPerPage = PageSize,
+                    TotalSongs = repository.Songs.Count()
+                }
+            };
+            return View(model);
         }
+
     }
 }
+        
