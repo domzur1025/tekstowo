@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Moq;
 using System.Web.Mvc;
 using Ninject;
+using Tekstowo.Domain.Abstract;
+using Tekstowo.Domain.Concrete;
+using Tekstowo.Domain.Entities;
 
 namespace Tekstowo.WebUI.Infrastructure
 {
@@ -25,7 +29,7 @@ namespace Tekstowo.WebUI.Infrastructure
         }
         private void AddBindings()
         {
-            // tu umieść dodatkowe powiązania
+            kernel.Bind<ISongRepository>().To<EFSongRepository>();
         }
     }
 }

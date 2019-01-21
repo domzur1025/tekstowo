@@ -93,3 +93,7 @@ C:\Users\Dominik\source\repos\Tekstowo\Tekstowo.WebUI\obj\Debug\Tekstowo.WebUI.c
 C:\Users\Dominik\source\repos\Tekstowo\Tekstowo.WebUI\obj\Debug\Tekstowo.WebUI.csproj.CopyComplete
 C:\Users\Dominik\source\repos\Tekstowo\Tekstowo.WebUI\obj\Debug\Tekstowo.WebUI.dll
 C:\Users\Dominik\source\repos\Tekstowo\Tekstowo.WebUI\obj\Debug\Tekstowo.WebUI.pdb
+C:\Users\Dominik\source\repos\Tekstowo\Tekstowo.WebUI\bin\EntityFramework.dll
+C:\Users\Dominik\source\repos\Tekstowo\Tekstowo.WebUI\bin\EntityFramework.SqlServer.dll
+C:\Users\Dominik\source\repos\Tekstowo\Tekstowo.WebUI\bin\EntityFramework.xml
+C:\Users\Dominik\source\repos\Tekstowo\Tekstowo.WebUI\bin\EntityFramework.SqlServer.xml

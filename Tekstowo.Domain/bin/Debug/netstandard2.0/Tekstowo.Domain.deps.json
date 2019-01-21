@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "28e0c6882bb140fba0f5d94df549786aca9e647a"
+    "signature": "9dd840ea848f80fae13b6f1d0e9ce05fad5b08ab"
   },
   "compilationOptions": {},
   "targets": {
@@ -9,11 +9,24 @@
     ".NETStandard,Version=v2.0/": {
       "Tekstowo.Domain/1.0.0": {
         "dependencies": {
+          "EntityFramework": "6.2.0",
           "Microsoft.AspNet.Mvc": "5.0.0",
           "NETStandard.Library": "2.0.3"
         },
         "runtime": {
           "Tekstowo.Domain.dll": {}
+        }
+      },
+      "EntityFramework/6.2.0": {
+        "runtime": {
+          "lib/net45/EntityFramework.SqlServer.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.2.61023.0"
+          },
+          "lib/net45/EntityFramework.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.2.61023.0"
+          }
         }
       },
       "Microsoft.AspNet.Mvc/5.0.0": {
@@ -81,6 +94,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "EntityFramework/6.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+aB/cnEAr9KqVMjmZwu+Fzy3EOPjCIzNsPAUyn19WbB2u3LFHd2OB3X56ohAj7EBf2hppl9M27nlRnkQxOhoAA==",
+      "path": "entityframework/6.2.0",
+      "hashPath": "entityframework.6.2.0.nupkg.sha512"
     },
     "Microsoft.AspNet.Mvc/5.0.0": {
       "type": "package",
