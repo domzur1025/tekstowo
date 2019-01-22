@@ -125,14 +125,19 @@
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ArtistController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SongController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="HtmlHelpers\PagingHelpers.cs" />
+    <Compile Include="HtmlHelpers\ArtistPageHelpers.cs" />
+    <Compile Include="HtmlHelpers\SongPagingHelpers.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
-    <Compile Include="Models\PagingInfo.cs" />
-    <Compile Include="Models\SongListViewModelcs.cs" />
+    <Compile Include="Models\ArtistListViewModels.cs" />
+    <Compile Include="Models\ArtistPagingInfo.cs" />
+    <Compile Include="Models\SongPagingInfo.cs" />
+    <Compile Include="Models\SongListViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -145,6 +150,9 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Song\List.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Shared\SongSummary.cshtml" />
+    <Content Include="Views\Artist\List.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

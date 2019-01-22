@@ -1,0 +1,28 @@
+﻿@model Tekstowo.WebUI.Models.ArtistListViewModels
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>List</title>
+</head>
+<body>
+    @foreach (var s in Model.Artists)
+    {
+        <div class="well">
+            
+                <strong>@s.Name</strong>
+
+            
+            
+        </div>
+    }
+    <div class="btn-group pull-right">
+        @Html.PageLinks(Model.ArtistPagingInfo, x => Url.Action("List", new { page = x }))
+    </div>
+</body>
+</html>

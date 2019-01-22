@@ -15,22 +15,27 @@ namespace Tekstowo.WebUI.Controllers
         public int PageSize = 4;
 
         // GET: Song
+
         public SongController(ISongRepository songRepository)
         {
             this.repository = songRepository;
         }
 
-        public ViewResult List(int page = 1)
+        public ViewResult List(int ArtistId, int page = 1)
         {
-            SongListViewModelcs model = new SongListViewModelcs
+            SongListViewModels model = new SongListViewModels
             {
-                Songs = repository.Songs.OrderBy(s => s.SongId).Skip((page - 1) * PageSize).Take(PageSize),
-                PagingInfo = new PagingInfo
+                Songs = repository.Songs.Where(m => ArtistId == null || m.ArtistId==ArtistId).
+                OrderBy(s => s.SongId).
+                Skip((page - 1) * PageSize).
+                Take(PageSize),
+                SongPagingInfo = new SongPagingInfo
                 {
                     CurrentPage = page,
                     SongPerPage = PageSize,
                     TotalSongs = repository.Songs.Count()
-                }
+                },
+                CurrentArtistId = ArtistId
             };
             return View(model);
         }

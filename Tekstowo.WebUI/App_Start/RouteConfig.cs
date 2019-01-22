@@ -14,9 +14,21 @@ namespace Tekstowo.WebUI
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Songs",
+                url: "Songs/{ArtistId}",
+                defaults: new { Controller = "Song", action = "List" }
+            );
+
+            routes.MapRoute(
+                name: "Artists",
+                url: "Artists/{page}",
+                defaults: new { Controller = "Artist", action = "List" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Song", action = "List", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

@@ -29,6 +29,7 @@ namespace Tekstowo.WebUI.Infrastructure
         }
         private void AddBindings()
         {
+            kernel.Bind<IArtistRepository>().To<EFArtistRepository>();
             kernel.Bind<ISongRepository>().To<EFSongRepository>();
         }
     }

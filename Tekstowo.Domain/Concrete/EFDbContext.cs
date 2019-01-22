@@ -9,5 +9,6 @@ namespace Tekstowo.Domain.Concrete
     class EFDbContext:DbContext
     {
         public DbSet<Song> Songs { get; set; }
+        public DbSet<Artist> Artist { get; set; }
     }
 }

@@ -326,11 +326,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dominik\\source\\repos\\tekstowo\\Tekstowo.Domain\\Tekstowo.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\Dominik\\source\\repos\\Tekstowo\\Tekstowo.Domain\\Tekstowo.Domain.csproj",
       "projectName": "Tekstowo.Domain",
-      "projectPath": "C:\\Users\\Dominik\\source\\repos\\tekstowo\\Tekstowo.Domain\\Tekstowo.Domain.csproj",
+      "projectPath": "C:\\Users\\Dominik\\source\\repos\\Tekstowo\\Tekstowo.Domain\\Tekstowo.Domain.csproj",
       "packagesPath": "C:\\Users\\Dominik\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dominik\\source\\repos\\tekstowo\\Tekstowo.Domain\\obj\\",
+      "outputPath": "C:\\Users\\Dominik\\source\\repos\\Tekstowo\\Tekstowo.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

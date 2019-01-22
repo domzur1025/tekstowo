@@ -1,18 +1,16 @@
-﻿@using Tekstowo.Domain.Entities
-@model Tekstowo.WebUI.Models.SongListViewModelcs
-@{
-                /**/
-
-                ViewBag.Title = "Piosenki";
+﻿@model Tekstowo.WebUI.Models.SongListViewModels
+    ViewBag.Title = "Piosenki";
 }
-@foreach (var m in Model.Songs)
+@foreach (var s in Model.Songs)
 {
-<div>
-    <h3>@m.ArtistName - @m.Name</h3>
-   
-    <h4>@m.Lyrics</h4>
-</div>
+    <div class="well">
+        <h3>
+            <strong>@s.ArtistName - @s.Name</strong>
+            
+        </h3>
+        <span class="lead"> @s.Lyrics</span>
+    </div>
 }
-<div>
-    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x }))
+<div class="btn-group pull-right">
+    @Html.PageLinks(Model.SongPagingInfo, x => Url.Action("List", new { page = x }))
 </div>
