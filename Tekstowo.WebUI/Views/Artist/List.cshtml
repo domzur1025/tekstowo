@@ -3,7 +3,9 @@
 @foreach (var s in Model.Artists)
 {
     <div class="well">    
-        <strong>@s.Name</strong>   
+        <a href="/Songs/@s.ArtistId">
+            <strong>@s.Name</strong>
+        </a>   
     </div>
 }
     <div class="btn-group pull-right">

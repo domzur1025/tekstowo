@@ -1,16 +1,11 @@
 ﻿@model Tekstowo.WebUI.Models.SongListViewModels
-    ViewBag.Title = "Piosenki";
-}
 @foreach (var s in Model.Songs)
 {
     <div class="well">
         <h3>
-            <strong>@s.ArtistName - @s.Name</strong>
+            <a href="/Lyrics/@s.SongId"><strong>@s.ArtistName - @s.Name</strong></a>
             
         </h3>
-        <span class="lead"> @s.Lyrics</span>
+        
     </div>
 }
-<div class="btn-group pull-right">
-    @Html.PageLinks(Model.SongPagingInfo, x => Url.Action("List", new { page = x }))
-</div>

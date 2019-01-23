@@ -21,22 +21,35 @@ namespace Tekstowo.WebUI.Controllers
             this.repository = songRepository;
         }
 
-        public ViewResult List(int ArtistId, int page = 1)
+        public ViewResult Lyrics(int SongId)
         {
             SongListViewModels model = new SongListViewModels
             {
-                Songs = repository.Songs.Where(m => ArtistId == null || m.ArtistId==ArtistId).
-                OrderBy(s => s.SongId).
-                Skip((page - 1) * PageSize).
-                Take(PageSize),
-                SongPagingInfo = new SongPagingInfo
-                {
-                    CurrentPage = page,
-                    SongPerPage = PageSize,
-                    TotalSongs = repository.Songs.Count()
-                },
-                CurrentArtistId = ArtistId
+                Songs = repository.Songs.Where(m => m.SongId == SongId).Take(1)
             };
+            return View(model);
+        }
+
+        public ViewResult List(int? ArtistId, int page = 1)
+        {
+            SongListViewModels model;
+            if (ArtistId != null)
+            {
+                model = new SongListViewModels
+                {
+                    Songs = repository.Songs.Where(m => ArtistId == null || m.ArtistId == ArtistId).
+                    OrderBy(s => s.SongId).
+                    Skip((page - 1) * PageSize).
+                    Take(PageSize),
+                    
+                    CurrentArtistId = (int)ArtistId
+                };
+            }
+            else
+            {
+                model = new SongListViewModels();
+            }
+
             return View(model);
         }
 
