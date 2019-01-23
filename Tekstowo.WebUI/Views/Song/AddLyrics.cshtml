@@ -1,0 +1,19 @@
+﻿@model Tekstowo.Domain.Entities.Song
+<div>
+    @using (Html.BeginForm("AddingLyrics", "Song", FormMethod.Post))
+    {
+        <div class="well">
+            Nazwa zespołu:
+            @Html.TextBoxFor(m => m.ArtistName)
+        </div>
+        <div class="well">
+            Nazwa utworu:
+            @Html.TextBoxFor(m => m.Name)
+        </div>
+        <div class="well">
+            Tekst:
+            @Html.TextAreaFor(m => m.Lyrics)
+        </div>
+        <input type="submit" />
+    }
+    

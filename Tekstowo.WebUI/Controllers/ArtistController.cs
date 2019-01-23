@@ -35,5 +35,18 @@ namespace Tekstowo.WebUI.Controllers
             };
             return View(model);
         }
+
+        public int AddArtist(string Name)
+        {
+            IEnumerable<Artist> artist= repository.Artists.Where(a => a.Name == Name);
+            int id=0;
+            if (artist.Count() == 1)
+            {
+                Artist tempArtist = artist.First();
+                id = tempArtist.ArtistId;
+            }
+            
+            return id;
+        }
     }
 }

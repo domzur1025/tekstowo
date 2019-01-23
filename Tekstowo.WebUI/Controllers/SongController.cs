@@ -29,9 +29,7 @@ namespace Tekstowo.WebUI.Controllers
             };
             return View(model);
         }
-
         
-
         public ViewResult List(int? ArtistId, int page = 1)
         {
             SongListViewModels model;
@@ -52,8 +50,19 @@ namespace Tekstowo.WebUI.Controllers
                     Songs = repository.Songs.OrderByDescending(s => s.SongId).Take(10)
                 };
             }
-
             return View(model);
+        }
+
+        public ViewResult AddLyrics()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        public string AddingLyrics(Song song)
+        {
+            return null ;
         }
 
     }

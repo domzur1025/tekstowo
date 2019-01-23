@@ -32,6 +32,12 @@ namespace Tekstowo.WebUI
                 );
 
             routes.MapRoute(
+                name: "AddLyrics",
+                url: "AddLyrics",
+                defaults: new { Controller = "Song", action = "AddLyrics" }
+            );
+
+            routes.MapRoute(
                 name: "Artists",
                 url: "Artists/{page}",
                 defaults: new { Controller = "Artist", action = "List" }
