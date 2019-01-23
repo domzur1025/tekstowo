@@ -1,0 +1,6 @@
+﻿@model Tekstowo.WebUI.Models.ArtistListViewModels
+
+@foreach (var m in Model.Artists)
+{
+    <a href="/Songs/@m.ArtistId"><div>@m.Name</div></a>
+}

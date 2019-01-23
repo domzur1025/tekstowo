@@ -16,6 +16,8 @@
             <h4>Najowsze piosenki</h4><br/>
             @Html.Action("SideMenuNewest","Nav")
             ___
+            <h4>Zespoły z największą ilością tekstów</h4>
+            @Html.Action("SideMenuPopular", "Nav")
         </div>
         <div class="col-xs-8">
             @RenderBody()

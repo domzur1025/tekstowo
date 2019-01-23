@@ -156,6 +156,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Song\Lyrics.cshtml" />
     <Content Include="Views\Nav\SideMenuNewest.cshtml" />
+    <Content Include="Views\Nav\SideMenuPopular.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -11,11 +11,13 @@ namespace Tekstowo.WebUI.Controllers
 {
     public class NavController : Controller
     {
-        private ISongRepository repository;
+        private ISongRepository songRepository;
+        private IArtistRepository artistRepository;
 
-        public NavController(ISongRepository SongRepository)
+        public NavController(ISongRepository SongRepository,IArtistRepository ArtistRepository)
         {
-            repository = SongRepository;
+            songRepository = SongRepository;
+            artistRepository = ArtistRepository;
         }
 
         // GET: Nav
@@ -23,7 +25,7 @@ namespace Tekstowo.WebUI.Controllers
         {
             SongListViewModels model = new SongListViewModels
             {
-                Songs = repository.Songs.OrderByDescending(s => s.ArtistId).Take(5)
+                Songs = songRepository.Songs.OrderByDescending(s => s.ArtistId).Take(5)
             };
             /*IEnumerable<string> newestSongArtistName =repository.Songs.OrderByDescending(s => s.SongId).Select(s => s.ArtistName).Take(5);
             string[] newestSongsArtistNameArray = newestSongArtistName.ToArray();
@@ -35,6 +37,16 @@ namespace Tekstowo.WebUI.Controllers
                 newestSongsArray[i] = newestSongsArtistNameArray[i] + " - " + newestSongsNameArray[i];
             }
             IEnumerable<string> newestSongs = newestSongsArray;*/
+            
+            return PartialView(model);
+        }
+
+        public PartialViewResult SideMenuPopular()
+        {
+            ArtistListViewModels model = new ArtistListViewModels
+            {
+                Artists = artistRepository.Artists.OrderBy(m => m.SongCounter).Take(5)
+            };
             return PartialView(model);
         }
 
