@@ -12,7 +12,7 @@ namespace Tekstowo.Domain.Concrete
 
         public IEnumerable<Artist> Artists
         {
-            get { return context.Artist; }
+            get { return context.Artists; }
         }
     }
 }
