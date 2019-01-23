@@ -30,6 +30,8 @@ namespace Tekstowo.WebUI.Controllers
             return View(model);
         }
 
+        
+
         public ViewResult List(int? ArtistId, int page = 1)
         {
             SongListViewModels model;
@@ -37,17 +39,18 @@ namespace Tekstowo.WebUI.Controllers
             {
                 model = new SongListViewModels
                 {
-                    Songs = repository.Songs.Where(m => ArtistId == null || m.ArtistId == ArtistId).
-                    OrderBy(s => s.SongId).
-                    Skip((page - 1) * PageSize).
-                    Take(PageSize),
+                    Songs = repository.Songs.Where(m =>  m.ArtistId == ArtistId).
+                    OrderBy(s => s.Name),
                     
                     CurrentArtistId = (int)ArtistId
                 };
             }
             else
             {
-                model = new SongListViewModels();
+                model = new SongListViewModels
+                {
+                    Songs = repository.Songs.OrderByDescending(s => s.SongId).Take(10)
+                };
             }
 
             return View(model);
