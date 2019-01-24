@@ -36,7 +36,7 @@ namespace Tekstowo.WebUI.Controllers
             return View(model);
         }
 
-        public int AddArtist(string Name)
+        public int CheckIdArtist(string Name)
         {
             IEnumerable<Artist> artist= repository.Artists.Where(a => a.Name == Name);
             int id=0;
@@ -46,6 +46,16 @@ namespace Tekstowo.WebUI.Controllers
                 id = tempArtist.ArtistId;
             }
             
+            return id;
+        }
+
+        public int AddArtist(string Name)
+        {
+            int id = CheckIdArtist(Name);
+            if(id==0)
+            {
+                //Dodanie do bazy danych.
+            }
             return id;
         }
     }

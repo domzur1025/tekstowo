@@ -125,6 +125,7 @@
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ArtistController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NavController.cs" />
@@ -158,6 +159,9 @@
     <Content Include="Views\Nav\SideMenuNewest.cshtml" />
     <Content Include="Views\Nav\SideMenuPopular.cshtml" />
     <Content Include="Views\Song\AddLyrics.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Admin\SongList.cshtml" />
+    <Content Include="Views\Admin\EditSong.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

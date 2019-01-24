@@ -8,5 +8,6 @@ namespace Tekstowo.Domain.Abstract
     public interface ISongRepository
     {
         IEnumerable<Song> Songs { get; }
+        void SaveSong(Song song);
     }
 }

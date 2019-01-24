@@ -12,13 +12,15 @@ namespace Tekstowo.WebUI.Controllers
     public class SongController : Controller
     {
         private ISongRepository repository;
+        private IArtistRepository artistRepository;
         public int PageSize = 4;
 
         // GET: Song
 
-        public SongController(ISongRepository songRepository)
+        public SongController(ISongRepository songRepository, IArtistRepository artistRepository)
         {
             this.repository = songRepository;
+            this.artistRepository = artistRepository;
         }
 
         public ViewResult Lyrics(int SongId)
@@ -62,6 +64,13 @@ namespace Tekstowo.WebUI.Controllers
         [HttpPost]
         public string AddingLyrics(Song song)
         {
+            ArtistController artistController = new ArtistController(artistRepository);
+            int id = artistController.CheckIdArtist(song.ArtistName);
+            if (id == 0)
+            {
+                id = artistController.AddArtist(song.ArtistName);
+            }
+            //Dodanie do bazy danych
             return null ;
         }
 

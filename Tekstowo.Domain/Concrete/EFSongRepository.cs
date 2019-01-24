@@ -13,5 +13,25 @@ namespace Tekstowo.Domain.Concrete
         public IEnumerable<Song> Songs {
             get { return context.Songs; }
         }
+
+        public void SaveSong(Song song)
+        {
+            if (song.SongId == 0)
+            {
+                context.Songs.Add(song);
+            }
+            else
+            {
+                Song dbEntry = context.Songs.Find(song.SongId);
+                if (dbEntry != null)
+                {
+                    dbEntry.Name = song.Name;
+                    dbEntry.ArtistName = song.ArtistName;
+                    dbEntry.ArtistId = song.ArtistId;
+                    dbEntry.Lyrics = song.Lyrics;
+                }
+            }
+            context.SaveChanges();
+        }
     }
 }
