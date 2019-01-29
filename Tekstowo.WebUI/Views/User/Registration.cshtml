@@ -1,0 +1,29 @@
+﻿@model Tekstowo.Domain.Entities.User
+
+<div class="panel">
+    <div class="panel-heading">
+        Rejestracja
+    </div>
+    @using (Html.BeginForm())
+    {
+        <div class="panel-body">
+            <div>
+                <label>Login:</label>
+                @Html.TextBoxFor(m => m.UserNickname)
+            </div>
+            <div>
+                <label>Hasło:</label>
+                @Html.TextBoxFor(m => m.UserPassword)
+            </div>
+            <div>
+                <label>Powtórz hasło:</label>
+                @Html.TextBoxFor(m => m.UserType)
+            </div>
+            
+        </div>
+        <div class="panel-footer">
+            <input type="submit" value="Rejestruj" />
+        </div>
+    }
+
+</div>

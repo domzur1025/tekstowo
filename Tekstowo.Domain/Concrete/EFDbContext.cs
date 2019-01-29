@@ -10,5 +10,6 @@ namespace Tekstowo.Domain.Concrete
     {
         public DbSet<Song> Songs { get; set; }
         public DbSet<Artist> Artists { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

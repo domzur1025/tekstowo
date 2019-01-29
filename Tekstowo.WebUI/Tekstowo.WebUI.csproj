@@ -130,6 +130,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NavController.cs" />
     <Compile Include="Controllers\SongController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -140,6 +141,7 @@
     <Compile Include="Models\ArtistPagingInfo.cs" />
     <Compile Include="Models\SongPagingInfo.cs" />
     <Compile Include="Models\SongListViewModels.cs" />
+    <Compile Include="Models\UserListViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +164,7 @@
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Admin\SongList.cshtml" />
     <Content Include="Views\Admin\EditSong.cshtml" />
+    <Content Include="Views\User\Registration.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -171,6 +174,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\UserRegistration\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tekstowo.Domain\Tekstowo.Domain.csproj">
