@@ -54,7 +54,8 @@ namespace Tekstowo.WebUI.Controllers
             int id = CheckIdArtist(Name);
             if(id==0)
             {
-                //Dodanie do bazy danych.
+                repository.SaveArtist(new Artist { Name = Name });
+                id = repository.Artists.First(a => a.Name == Name).ArtistId;
             }
             return id;
         }

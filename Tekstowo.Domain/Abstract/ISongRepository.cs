@@ -9,5 +9,6 @@ namespace Tekstowo.Domain.Abstract
     {
         IEnumerable<Song> Songs { get; }
         void SaveSong(Song song);
+        void DeleteSong(Song song);
     }
 }

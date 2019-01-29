@@ -1,8 +1,17 @@
 ﻿@model Tekstowo.Domain.Entities.Song
+@if (Session["UserNickname"] == null)
+{
+    Response.Redirect("~/Login");
+}
+else if (!Session["UserType"].Equals("Admin"))
+{
+    Response.Redirect("~/");
+}
 
-@{ 
+@{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+
 
 <div class="panel">
     <div class="panel-heading">
@@ -11,32 +20,32 @@
     @using (Html.BeginForm())
     {
         <div class="panel-body">
-            @Html.HiddenFor(m=>m.SongId)
-            @foreach(var property in ViewData.ModelMetadata.Properties)
+            @Html.HiddenFor(m => m.SongId)
+            @foreach (var property in ViewData.ModelMetadata.Properties)
             {
-                if (property.PropertyName != "SongId"&&property.PropertyName!="ArtistId")
+                if (property.PropertyName != "SongId" && property.PropertyName != "ArtistId")
                 {
-                    
-                        <div class="form-group">
-                            <label>@(property.DisplayName ?? property.PropertyName)</label>
-                            @if (property.PropertyName == "Lyrics")
-                            {
-                                @Html.TextArea(property.PropertyName, null, new { @class = "form-control", rows = 5 })
 
-                            }
-                            else
-                            {
-                                @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
-                            }
-                        </div>
-                 
-                    
+                    <div class="form-group">
+                        <label>@(property.DisplayName ?? property.PropertyName)</label>
+                        @if (property.PropertyName == "Lyrics")
+                        {
+                            @Html.TextArea(property.PropertyName, null, new { @class = "form-control", rows = 5 })
+
+                        }
+                        else
+                        {
+                            @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
+                        }
+                    </div>
+
+
                 }
             }
         </div>
         <div class="panel-footer">
             <input type="submit" value="Zapisz" class="btn btn-primary" />
-            @Html.ActionLink("Anuluj","SongList",null, new { @class ="btn btn-default"})
+            @Html.ActionLink("Anuluj", "SongList", null, new { @class = "btn btn-default" })
         </div>
     }
 </div>

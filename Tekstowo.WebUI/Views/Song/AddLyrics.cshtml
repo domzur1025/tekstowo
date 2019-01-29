@@ -1,19 +1,31 @@
 ﻿@model Tekstowo.Domain.Entities.Song
-<div>
-    @using (Html.BeginForm("AddingLyrics", "Song", FormMethod.Post))
+@if (Session["UserNickname"] == null)
+{
+    Response.Redirect("~/");
+}
+<div class="panel">
+    <div class="panel-heading">
+        Dodaj utwór
+    </div>
+    @using (Html.BeginForm())
     {
-        <div class="well">
-            Nazwa zespołu:
+    <div class="panel-body">
+        <div>
+            <label>Nazwa zespołu:</label>
             @Html.TextBoxFor(m => m.ArtistName)
         </div>
-        <div class="well">
-            Nazwa utworu:
+        <div>
+            <label>Nazwa utworu:</label>
             @Html.TextBoxFor(m => m.Name)
         </div>
-        <div class="well">
-            Tekst:
+        <div>
+            <label>Tekst:</label>
             @Html.TextAreaFor(m => m.Lyrics)
         </div>
+    </div>
+    <div class="panel-footer">
         <input type="submit" />
+    </div>
+        
     }
-    
+</div>

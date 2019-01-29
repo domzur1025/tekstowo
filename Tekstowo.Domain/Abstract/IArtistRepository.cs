@@ -10,5 +10,6 @@ namespace Tekstowo.Domain.Abstract
         IEnumerable<Artist> Artists { get; }
         void SaveArtist(Artist artist);
         void IncreseSongCounter(Artist artist);
+        void DecreseSongCounter(Artist artist);
     }
 }

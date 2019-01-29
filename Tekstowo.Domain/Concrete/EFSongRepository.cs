@@ -13,7 +13,7 @@ namespace Tekstowo.Domain.Concrete
         public IEnumerable<Song> Songs {
             get { return context.Songs; }
         }
-
+        
         public void SaveSong(Song song)
         {
             if (song.SongId == 0)
@@ -32,6 +32,16 @@ namespace Tekstowo.Domain.Concrete
                 }
             }
             context.SaveChanges();
+        }
+
+        public void DeleteSong(Song song)
+        {
+            Song dbEntry = context.Songs.Find(song.SongId);
+            if (dbEntry != null)
+            {
+                context.Songs.Remove(dbEntry);
+                context.SaveChanges();
+            }
         }
     }
 }

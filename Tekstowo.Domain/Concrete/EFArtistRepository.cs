@@ -38,5 +38,16 @@ namespace Tekstowo.Domain.Concrete
                 context.SaveChanges();
             }
         }
+
+        public void DecreseSongCounter(Artist artist)
+        {
+            Artist dbEntry = context.Artists.Find(artist.ArtistId);
+            if (dbEntry != null)
+            {
+                dbEntry.SongCounter--;
+                context.SaveChanges();
+            }
+            
+        }
     }
 }

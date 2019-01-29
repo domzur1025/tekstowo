@@ -1,33 +1,26 @@
 ﻿@model Tekstowo.Domain.Entities.User
 @if (Session["UserNickname"] != null)
 {
-    
     Response.Redirect("~/");
 }
 <div class="panel">
     <div class="panel-heading">
-        Rejestracja
+        Logowanie
     </div>
     @using (Html.BeginForm())
     {
         <div class="panel-body">
             <div>
                 <label>Login:</label>
-                @Html.TextBoxFor(m => m.UserNickname)
+                @Html.TextBoxFor(u=>u.UserNickname)
             </div>
             <div>
                 <label>Hasło:</label>
-                @Html.TextBoxFor(m => m.UserPassword)
+                @Html.TextBoxFor(u=>u.UserPassword)
             </div>
-            <div>
-                <label>Powtórz hasło:</label>
-                @Html.TextBoxFor(m => m.UserType)
-            </div>
-
         </div>
         <div class="panel-footer">
-            <input type="submit" value="Rejestruj" />
+            <input type="submit" value="Zaloguj" />
         </div>
     }
-
 </div>

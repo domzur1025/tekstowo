@@ -1,13 +1,18 @@
 ﻿@model IEnumerable<Tekstowo.Domain.Entities.Song>
-
+@if (Session["UserNickname"] == null)
+{
+    Response.Redirect("~/Login");
+}
+else if(!Session["UserType"].Equals("Admin"))
+{
+    Response.Redirect("~/");
+}
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <h2>Song List</h2>
-<p>
-    @Html.ActionLink("Dodaj nową", "Create")
-</p>
+
 
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -31,7 +36,7 @@
                     
                     
                     <td>
-                        @using (Html.BeginForm("Delete", "Admin"))
+                        @using (Html.BeginForm("DeleteSong", "Admin"))
                         {
                             @Html.Hidden("SongId", song.SongId)
                             <input type="submit" value="Usuń" />

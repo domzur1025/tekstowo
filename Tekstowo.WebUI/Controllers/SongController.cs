@@ -63,7 +63,7 @@ namespace Tekstowo.WebUI.Controllers
         }
 
         [HttpPost]
-        public string AddingLyrics(Song song)
+        public ActionResult AddLyrics(Song song)
         {
             ArtistController artistController = new ArtistController(artistRepository);
             int id = artistController.CheckIdArtist(song.ArtistName);
@@ -71,8 +71,11 @@ namespace Tekstowo.WebUI.Controllers
             {
                 id = artistController.AddArtist(song.ArtistName);
             }
-            //Dodanie do bazy danych
-            return null ;
+            repository.SaveSong(new Song { SongId = 0, ArtistId = id, ArtistName = song.ArtistName, Lyrics = song.Lyrics, Name = song.Name });
+            int songId = repository.Songs.Last().SongId;
+            TempData["message"] = "Dodano";
+            return RedirectToAction("Index", "Home");
+           
         }
 
     }

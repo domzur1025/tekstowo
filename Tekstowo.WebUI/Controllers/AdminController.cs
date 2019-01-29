@@ -45,6 +45,7 @@ namespace Tekstowo.WebUI.Controllers
                 
                 if (tempSong.ArtistName != song.ArtistName)
                 {
+                    artistRepository.DecreseSongCounter(new Artist { ArtistId = tempSong.ArtistId });
                     int id = 0;
                     Artist tempArtist = artistRepository.Artists.FirstOrDefault(a => a.Name == song.ArtistName);
                     if (tempArtist != null) id = tempArtist.ArtistId;
@@ -69,6 +70,17 @@ namespace Tekstowo.WebUI.Controllers
             {
                 return View(song);
             }
+        }
+
+        public ActionResult DeleteSong(int SongId)
+        {
+            Song song = songRepository.Songs.First(s => s.SongId == SongId);
+            if (song != null)
+            {
+                artistRepository.DecreseSongCounter(new Artist { ArtistId = song.ArtistId });
+                songRepository.DeleteSong(song);
+            }
+            return RedirectToAction("SongList","Admin");
         }
     }
 }
