@@ -45,7 +45,7 @@ namespace Tekstowo.WebUI.Controllers
         {
             ArtistListViewModels model = new ArtistListViewModels
             {
-                Artists = artistRepository.Artists.OrderBy(m => m.SongCounter).Take(5)
+                Artists = artistRepository.Artists.OrderByDescending(m => m.SongCounter).Take(5)
             };
             return PartialView(model);
         }

@@ -1,0 +1,16 @@
+﻿@if (Session["UserNickname"] == null)
+{
+    Response.Redirect("~/Login");
+}
+else if (!Session["UserType"].Equals("Admin"))
+{
+    Response.Redirect("~/");
+}
+
+<div class="well">
+    <a href="/Admin/SongsList"><strong>Zarządzaj piosenkami</strong></a>
+</div>
+
+<div class="well">
+    <a href="/Admin/UsersList"><strong>Zarządzaj użytkownikami</strong></a>
+</div>

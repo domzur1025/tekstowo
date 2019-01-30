@@ -20,5 +20,17 @@ namespace Tekstowo.Domain.Concrete
             context.Users.Add(user);
             context.SaveChanges();
         }
+
+        public void UpdateUser(User user)
+        {
+            User dbEntry = context.Users.Find(user.UserId);
+            if(dbEntry!=null)
+            {
+                dbEntry.UserNickname = user.UserNickname;
+                dbEntry.UserType = user.UserType;
+                context.SaveChanges();
+            }
+            
+        }
     }
 }

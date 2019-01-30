@@ -12,12 +12,19 @@ namespace Tekstowo.WebUI.Controllers
     {
         ISongRepository songRepository;
         IArtistRepository artistRepository;
+        IUserRepository userRepository;
 
         // GET: Admin
-        public AdminController(ISongRepository songRepository, IArtistRepository artistRepository)
+        public AdminController(ISongRepository songRepository, IArtistRepository artistRepository, IUserRepository userRepository)
         {
             this.songRepository = songRepository;
             this.artistRepository = artistRepository;
+            this.userRepository = userRepository;
+        }
+
+        public ViewResult Index()
+        {
+            return View();
         }
 
         public ViewResult SongList()
@@ -54,6 +61,7 @@ namespace Tekstowo.WebUI.Controllers
                         artistRepository.SaveArtist(new Artist { Name = song.ArtistName, ArtistId = 0, SongCounter = 0 });
                         tempArtist = artistRepository.Artists.FirstOrDefault(a => a.Name == song.ArtistName);
                         song.ArtistId = tempArtist.ArtistId;
+                        artistRepository.IncreseSongCounter(new Artist { ArtistId = song.ArtistId });
                     }
                     else
                     {
@@ -81,6 +89,28 @@ namespace Tekstowo.WebUI.Controllers
                 songRepository.DeleteSong(song);
             }
             return RedirectToAction("SongList","Admin");
+        }
+
+        public ViewResult UsersList()
+        {
+            return View(userRepository.Users);
+        }
+
+        public ViewResult EditUser(int userId)
+        {
+            User user = userRepository.Users.First(u => u.UserId == userId);
+            return View(user);
+        }
+
+        [HttpPost]
+        public ActionResult EditUser(User user)
+        {
+            if(ModelState.IsValid)
+            {
+                userRepository.UpdateUser(user);
+                TempData["message"] = "Zaktualizowano dane użytkownika";
+            }
+            return RedirectToAction("UsersList", "Admin");
         }
     }
 }

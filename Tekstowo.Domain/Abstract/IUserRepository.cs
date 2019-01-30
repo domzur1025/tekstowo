@@ -9,5 +9,6 @@ namespace Tekstowo.Domain.Abstract
     {
         IEnumerable<User> Users { get; }
         void RegisterUser(User user);
+        void UpdateUser(User user);
     }
 }

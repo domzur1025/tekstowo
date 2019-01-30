@@ -1,0 +1,36 @@
+﻿@model Tekstowo.Domain.Entities.User
+@if (Session["UserNickname"] == null)
+{
+    Response.Redirect("~/Login");
+}
+else if (!Session["UserType"].Equals("Admin"))
+{
+    Response.Redirect("~/");
+}
+
+<div class="panel">
+    <div class="panel-heading">
+        <h3>Edytuj użytkownika @Model.UserNickname</h3>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        <div class="panel-body">
+            @foreach (var property in ViewData.ModelMetadata.Properties)
+            {
+                if (property.PropertyName != "UserId" && property.PropertyName != "UserPassword")
+                {
+                    <div class="form-group">
+                        <label>@property.PropertyName</label>
+                        @Html.TextBox(property.PropertyName, null, null, new { @class = "form-control" })
+                    </div>
+                    }
+                }
+
+        </div>
+        <div class="panel-footer">
+            <input type="submit" value="Zapisz" class="btn btn-primary" />
+            @Html.ActionLink("Anuluj", "UsersList", null, new { @class = "btn btn-default" })
+        </div>
+    }
+</div>

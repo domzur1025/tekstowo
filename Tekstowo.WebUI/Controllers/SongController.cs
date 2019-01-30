@@ -72,6 +72,7 @@ namespace Tekstowo.WebUI.Controllers
                 id = artistController.AddArtist(song.ArtistName);
             }
             repository.SaveSong(new Song { SongId = 0, ArtistId = id, ArtistName = song.ArtistName, Lyrics = song.Lyrics, Name = song.Name });
+            artistRepository.IncreseSongCounter(new Artist { ArtistId = id });
             int songId = repository.Songs.Last().SongId;
             TempData["message"] = "Dodano";
             return RedirectToAction("Index", "Home");

@@ -8,11 +8,6 @@ else if (!Session["UserType"].Equals("Admin"))
     Response.Redirect("~/");
 }
 
-@{
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
-}
-
-
 <div class="panel">
     <div class="panel-heading">
         <h3>Edytuj @Model.ArtistName - @Model.Name</h3>

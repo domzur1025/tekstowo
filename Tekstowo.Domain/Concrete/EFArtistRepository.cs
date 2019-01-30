@@ -22,7 +22,7 @@ namespace Tekstowo.Domain.Concrete
                 context.Artists.Add(artist);
             }
             context.SaveChanges();
-            IncreseSongCounter(artist);
+            //IncreseSongCounter(artist);
         }
 
         public void IncreseSongCounter(Artist artist)
@@ -32,11 +32,8 @@ namespace Tekstowo.Domain.Concrete
             {
                 SaveArtist(artist);
             }
-            else
-            {
                 dbEntry.SongCounter++;
                 context.SaveChanges();
-            }
         }
 
         public void DecreseSongCounter(Artist artist)

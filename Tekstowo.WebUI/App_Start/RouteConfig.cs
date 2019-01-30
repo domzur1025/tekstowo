@@ -62,6 +62,21 @@ namespace Tekstowo.WebUI
                 );
 
             routes.MapRoute(
+                name: "AdminPanel",
+                url: "Admin",
+                defaults: new { Controller = "Admin", Action = "Index" });
+
+            routes.MapRoute(
+                name: "AdminPanelSongsList",
+                url: "Admin/SongsList",
+                defaults: new { Controller = "Admin", Action = "SongList" });
+
+            routes.MapRoute(
+                name: "AdminPanelUsersList",
+                url: "Admin/UsersList",
+                defaults: new { Controller = "Admin", Action = "UsersList" });
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
