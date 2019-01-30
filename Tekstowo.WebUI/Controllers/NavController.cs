@@ -25,7 +25,7 @@ namespace Tekstowo.WebUI.Controllers
         {
             SongListViewModels model = new SongListViewModels
             {
-                Songs = songRepository.Songs.OrderByDescending(s => s.ArtistId).Take(5)
+                Songs = songRepository.Songs.OrderByDescending(s => s.SongId).Take(5)
             };
             /*IEnumerable<string> newestSongArtistName =repository.Songs.OrderByDescending(s => s.SongId).Select(s => s.ArtistName).Take(5);
             string[] newestSongsArtistNameArray = newestSongArtistName.ToArray();

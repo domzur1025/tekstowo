@@ -28,7 +28,7 @@ namespace Tekstowo.WebUI
             routes.MapRoute(
                 name:"SongLyrics",
                 url:"Lyrics/{songId}",
-                defaults: new {controller="Song", action="Lyrics"}
+                defaults: new {controller="Song", action="Lyrics",songId=UrlParameter.Optional}
                 );
 
             routes.MapRoute(
